@@ -1,11 +1,13 @@
 package net.marius.item;
 
+import net.marius.block.ModBlocks;
 import net.marius.mariusmod.MariusMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -23,8 +25,13 @@ public class CreativeModeModTabs {
     public static final RegistryObject<CreativeModeTab> MARIUS_TAB = TABS.register("marius_tab",
             () -> createTab(new ItemStack(ModItems.SAPPHIRE.get()), Component.translatable("creativetab.marius_tab"),
                     ((itemParameters, output) -> {
-                        for (var item : ModItems.items().getEntries()){
+                        for (var item : ModItems.items().getEntries()) {
                             Item rawValue = item.orElseThrow(NoSuchElementException::new);
+                            output.accept(rawValue);
+                        }
+
+                        for (var blockWrap : ModBlocks.blocks().getEntries()){
+                            Block rawValue = blockWrap.orElseThrow(NoSuchElementException::new);
                             output.accept(rawValue);
                         }
                     })));

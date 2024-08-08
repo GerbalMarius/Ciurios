@@ -1,6 +1,7 @@
 package net.marius.mariusmod;
 
 import com.mojang.logging.LogUtils;
+import net.marius.block.ModBlocks;
 import net.marius.item.CreativeModeModTabs;
 import net.marius.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -30,9 +31,10 @@ public class MariusMod {
     public MariusMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        CreativeModeModTabs.TABS.register(modEventBus);
+        CreativeModeModTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);

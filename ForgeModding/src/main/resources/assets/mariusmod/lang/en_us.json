@@ -1,5 +1,10 @@
 {
   "item.mariusmod.sapphire" : "Sapphire",
   "item.mariusmod.raw_sapphire" : "Raw Sapphire",
+
+  "block.mariusmod.sapphire_block": "Block of Sapphire",
+  "block.mariusmod.raw_sapphire_block": "Raw Sapphire",
+
+
   "creativetab.marius_tab" : "Marius Mod"
 }
